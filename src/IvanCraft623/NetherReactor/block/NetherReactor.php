@@ -159,6 +159,10 @@ class NetherReactor extends PMNetherReactor implements Permutable {
 			return false;
 		}
 
+		if (!$player->hasPermission("netherreactor.core.activation")) {
+			$player->sendMessage("§cYou don't have permission to active the nether reactor");
+		}
+
 		$structure = NetherReactorStructure::getInstance();
 		if (!$structure->isValidPattern($this->position)) {
 			$player->sendMessage(KnownTranslationFactory::netherreactor_wrong_pattern()->prefix(TextFormat::GRAY));

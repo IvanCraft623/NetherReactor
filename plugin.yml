@@ -11,6 +11,6 @@ softdepend:
   - MobPlugin
 
 permissions:
-  nr.test:
+  netherreactor.core.activation:
     default: true
 ...
