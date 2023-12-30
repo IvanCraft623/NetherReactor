@@ -1,0 +1,17 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/IvanCraft623/NetherReactor
+build-by-default: true
+projects:
+  NetherReactor:
+    path: ""
+    icon: "icon.png"
+    excludeDirs:
+      - .github
+      - images
+    excludeFiles:
+      - .gitignore
+      - .php-cs-fixer.php
+      - phpstan.neon.dist
+    libs:
+      - src: jasonw4331/libCustomPack/libCustomPack
+        version: ^1.0.1
+...

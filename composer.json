@@ -31,7 +31,7 @@
         "pocketmine/pocketmine-mp": "^5.0.0",
         "phpstan/phpstan": "1.10.21",
         "customiesdevs/customies": "*",
-		"jasonw4331/libcustompack": "dev-master",
+        "jasonw4331/libcustompack": "dev-master",
         "ivancraft623/mobplugin": "*"
     },
     "minimum-stability": "dev"
