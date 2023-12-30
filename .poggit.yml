@@ -11,6 +11,6 @@ projects:
       - .php-cs-fixer.php
       - phpstan.neon.dist
     libs:
-      - src: jasonw4331/libCustomPack/libCustomPack
+      - src: LatamPMDevs/libCustomPack/libCustomPack
         version: ^1.0.1
 ...
