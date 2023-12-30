@@ -22,6 +22,8 @@ declare(strict_types=1);
 
 namespace IvanCraft623\NetherReactor\block\tile;
 
+use IvanCraft623\NetherReactor\NetherReactor as Main;
+
 use IvanCraft623\NetherReactor\block\ExtraVanillaBlocks;
 use IvanCraft623\NetherReactor\block\NetherReactorType;
 use IvanCraft623\NetherReactor\entity\Pigman;
@@ -183,6 +185,10 @@ class NetherReactor extends Tile{
 	}
 
 	public function tryToSpawnPigmen() : void{
+		if (!Main::isMobPluginDetected()) {
+			return;
+		}
+
 		$world = $this->position->getWorld();
 		if ($world->getDifficulty() === World::DIFFICULTY_PEACEFUL) {
 			return;

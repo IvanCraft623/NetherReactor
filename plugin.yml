@@ -5,6 +5,10 @@ main: IvanCraft623\NetherReactor\NetherReactor
 version: 0.0.1
 api: 5.0.0
 description: "Implements legacy nether reactor!"
+depend:
+  - Customies
+softdepend:
+  - MobPlugin
 
 permissions:
   nr.test:

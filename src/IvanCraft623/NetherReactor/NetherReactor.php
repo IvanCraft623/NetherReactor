@@ -22,6 +22,8 @@ declare(strict_types=1);
 
 namespace IvanCraft623\NetherReactor;
 
+use IvanCraft623\MobPlugin\MobPlugin;
+
 use IvanCraft623\NetherReactor\block\ExtraBlockRegisterHelper;
 use IvanCraft623\NetherReactor\entity\ExtraEntityRegisterHelper;
 use IvanCraft623\NetherReactor\structure\NetherReactorStructure;
@@ -39,18 +41,32 @@ class NetherReactor extends PluginBase {
 
 	private static ResourcePack $pack;
 
+	private static bool $mobPluginDetected = false;
+
+	public static function isMobPluginDetected() : bool{
+		return self::$mobPluginDetected;
+	}
+
 	public function onLoad() : void {
 		self::setInstance($this);
 
 		//Build and register resource pack
 		libCustomPack::registerResourcePack(self::$pack = libCustomPack::generatePackFromResources($this));
 		$this->getLogger()->debug('Resource pack installed');
+
+		self::$mobPluginDetected = class_exists(MobPlugin::class);
+		if (!self::$mobPluginDetected) {
+			$this->getLogger()->error('Missing dependency: IvanCraft623/MobPlugin, some features will not be available');
+		}
 	}
 
 	public function onEnable() : void {
 		ExtraBlockRegisterHelper::init();
-		ExtraEntityRegisterHelper::init();
 		NetherReactorStructure::getInstance();
+
+		if (self::$mobPluginDetected) {
+			ExtraEntityRegisterHelper::init();
+		}
 	}
 
 	public function onDisable() : void{

@@ -15,7 +15,7 @@ Step back into a realm of cherished memories, crafting an ode to the legendary N
 Transport yourself and your players to an era where activating the Nether Reactor wasn't just a game mechanic, it was an adventure woven with excitement, danger, and the promise of unparalleled rewards. Remember the thrill of facing fiery challenges, encountering unique mobs, and reaping precious resources within this pocket-sized Nether domain.
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/IvanCraft623/NetherReactor/main/images/nether_reactor_pattern.png" width="63%">
+  <img src="https://raw.githubusercontent.com/IvanCraft623/NetherReactor/main/images/nether_reactor_pattern.png" width="65%">
 </div>
 
 This plugin isn't just about code; it's a vessel for nostalgia, a bridge connecting the present to the cherished moments of the past. Embrace the essence of Minecraft's history, allowing your server to echo with the echoes of those exhilarating Nether Reactor activations.
@@ -26,6 +26,10 @@ This plugin isn't just about code; it's a vessel for nostalgia, a bridge connect
 </div>
 
 Come, reignite the flames of nostalgia, and relive the enchantment of Minecraft's iconic past with our Nether Reactor plugin for PocketMine.
+
+# 🧩 Dependencies
+- Customies: Allows the creation of custom entities and blocks. Download ([Poggit](https://poggit.pmmp.io/p/Customies), [GitHub](https://github.com/CustomiesDevs/Customies))
+- MobPlugin: Used for entities and their AI. Download ([Github](https://github.com/IvanCraft623/MobPlugin))
 
 # 💡 Features
 
