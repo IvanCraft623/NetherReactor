@@ -22,11 +22,11 @@ declare(strict_types=1);
 
 namespace IvanCraft623\NetherReactor\block\tile;
 
-use IvanCraft623\NetherReactor\NetherReactor as Main;
-
 use IvanCraft623\NetherReactor\block\ExtraVanillaBlocks;
+
 use IvanCraft623\NetherReactor\block\NetherReactorType;
 use IvanCraft623\NetherReactor\entity\Pigman;
+use IvanCraft623\NetherReactor\NetherReactor as Main;
 use IvanCraft623\NetherReactor\structure\NetherReactorStructure;
 
 use pocketmine\block\tile\Tile;

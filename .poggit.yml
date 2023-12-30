@@ -6,7 +6,6 @@ projects:
     icon: "icon.png"
     excludeDirs:
       - .github
-      - images
     excludeFiles:
       - .gitignore
       - .php-cs-fixer.php
