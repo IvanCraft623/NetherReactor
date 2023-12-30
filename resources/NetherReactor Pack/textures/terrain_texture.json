@@ -1,0 +1,17 @@
+{
+  "num_mip_levels": 8,
+  "padding": 4,
+  "resource_pack_name": "netherreactor",
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "nether_reactor_inactive": {
+      "textures": "textures/blocks/nether_reactor"
+    },
+    "nether_reactor_active": {
+      "textures": "textures/blocks/nether_reactor_active"
+    },
+    "nether_reactor_used": {
+      "textures": "textures/blocks/nether_reactor_used"
+    }
+  }
+}

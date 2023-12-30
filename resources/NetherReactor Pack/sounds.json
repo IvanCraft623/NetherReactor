@@ -1,0 +1,26 @@
+{
+  "entity_sounds" : {
+    "entities" : {
+      "netherreactor:zombie_pigman" : {
+        "pitch" : [
+          0.8,
+          1.2
+        ],
+        "volume" : 1,
+        "events" : {
+          "ambient" : "mob.zombiepig.zpig",
+          "hurt" : "mob.zombiepig.zpighurt",
+          "death" : "mob.zombiepig.zpigdeath",
+          "mad" : {
+            "pitch" : [
+              1.44,
+              2.16
+            ],
+            "sound" : "mob.zombiepig.zpigangry",
+            "volume" : 2
+          }
+        }
+      }
+    }
+  }
+}

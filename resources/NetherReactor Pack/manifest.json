@@ -1,0 +1,25 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Nether Reactor Pack",
+    "name": "NetherReactor",
+    "uuid": "ca9d9458-1973-4669-a7cb-9e6c2d4852b2",
+    "version": [0, 0, 1],
+    "min_engine_version": [1, 16, 0]
+  },
+  "modules": [
+    {
+      "description": "Nether Reactor Resource Pack",
+      "type": "resources",
+      "uuid": "16c40476-87dd-4f16-a84c-8adc695d8d10",
+      "version": [1, 0, 0]
+    }
+  ],
+    "metadata": {
+        "authors": [
+            "IvanCraft623"
+        ],
+        "license": "GPL-3.0",
+        "url": "https://github.com/IvanCraft623/NetherReactor"
+    }
+}

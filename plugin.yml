@@ -1,0 +1,12 @@
+---
+name: NetherReactor
+author: IvanCraft623
+main: IvanCraft623\NetherReactor\NetherReactor
+version: 0.0.1
+api: 5.0.0
+description: "Implements legacy nether reactor!"
+
+permissions:
+  nr.test:
+    default: true
+...

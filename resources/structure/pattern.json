@@ -1,0 +1,214 @@
+[
+    {
+        "material": "cobblestone",
+        "transformations": [
+            {
+                "material": "glowing_obsidian",
+                "tick": 40
+            },
+            {
+                "material": "obsidian",
+                "tick": 900
+            }
+        ],
+        "blocks": [
+            {
+                "x": 0,
+                "y": -1,
+                "z": 0
+            },
+            {
+                "x": 0,
+                "y": -1,
+                "z": -1
+            },
+            {
+                "x": 0,
+                "y": -1,
+                "z": 1
+            },
+            {
+                "x": -1,
+                "y": -1,
+                "z": 0
+            },
+            {
+                "x": 1,
+                "y": -1,
+                "z": 0
+            }
+        ]
+    },
+    {
+        "material": "cobblestone",
+        "transformations": [
+            {
+                "material": "glowing_obsidian",
+                "tick": 60
+            },
+            {
+                "material": "obsidian",
+                "tick": 880
+            }
+        ],
+        "blocks": [
+            {
+                "x": -1,
+                "y": 0,
+                "z": -1
+            },
+            {
+                "x": 1,
+                "y": 0,
+                "z": -1
+            },
+            {
+                "x": -1,
+                "y": 0,
+                "z": 1
+            },
+            {
+                "x": 1,
+                "y": 0,
+                "z": 1
+            }
+        ]
+    },
+    {
+        "material": "cobblestone",
+        "transformations": [
+            {
+                "material": "glowing_obsidian",
+                "tick": 80
+            },
+            {
+                "material": "obsidian",
+                "tick": 860
+            }
+        ],
+        "blocks": [
+            {
+                "x": 0,
+                "y": 1,
+                "z": 0
+            },
+            {
+                "x": 0,
+                "y": 1,
+                "z": -1
+            },
+            {
+                "x": 0,
+                "y": 1,
+                "z": 1
+            },
+            {
+                "x": -1,
+                "y": 1,
+                "z": 0
+            },
+            {
+                "x": 1,
+                "y": 1,
+                "z": 0
+            }
+        ]
+    },
+    {
+        "material": "gold",
+        "transformations": [
+            {
+                "material": "glowing_obsidian",
+                "tick": 140
+            },
+            {
+                "material": "obsidian",
+                "tick": 900
+            }
+         ],
+        "blocks": [
+            {
+                "x": -1,
+                "y": -1,
+                "z": -1
+            },
+            {
+                "x": 1,
+                "y": -1,
+                "z": -1
+            },
+            {
+                "x": -1,
+                "y": -1,
+                "z": 1
+            },
+            {
+                "x": 1,
+                "y": -1,
+                "z": 1
+            }
+        ]
+    },
+    {
+        "material": "air",
+        "transformations": [
+            {
+                "material": "obsidian",
+                "tick": 880
+            }
+        ],
+        "blocks": [
+            {
+                "x": 0,
+                "y": 0,
+                "z": -1
+            },
+            {
+                "x": 0,
+                "y": 0,
+                "z": 1
+            },
+            {
+                "x": -1,
+                "y": 0,
+                "z": 0
+            },
+            {
+                "x": 1,
+                "y": 0,
+                "z": 0
+            }
+        ]
+    },
+    {
+        "material": "air",
+        "transformations": [
+            {
+                "material": "obsidian",
+                "tick": 860
+            }
+        ],
+        "blocks": [
+            {
+                "x": -1,
+                "y": 1,
+                "z": -1
+            },
+            {
+                "x": 1,
+                "y": 1,
+                "z": -1
+            },
+            {
+                "x": -1,
+                "y": 1,
+                "z": 1
+            },
+            {
+                "x": 1,
+                "y": 1,
+                "z": 1
+            }
+        ]
+    }
+]

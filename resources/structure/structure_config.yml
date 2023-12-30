@@ -1,0 +1,45 @@
+---
+# Block from which the spire will be made
+nether_reactor_spire_material: netherrack
+
+# All coordinates are referenced from the nether reactor core position
+
+# Bounds determinate nether reactor dimensions
+# We only use Y to determinate if the whole structure can be build at the current height.
+bounds:
+  maxY: 30
+  minY: -3
+
+# These sections are not considered part of the spire, so they will not corrupt after the reactor is used.
+platforms:
+- material: netherrack
+  from:
+    x: -8
+    "y": -3
+    z: -8
+  to:
+    x: 8
+    "y": -2
+    z: 8
+- material: netherrack
+  from:
+    x: -7
+    "y": 3
+    z: -7
+  to:
+    x: 7
+    "y": 3
+    z: 7
+
+# This is the area where items will be dropped and pigmans will spawn,
+# all non-pattern blocks in this area will be replaced by air.
+room:
+  from:
+    x: -7
+    "y": -1
+    z: -7
+  to:
+    x: 7
+    "y": 2
+    z: 7
+...

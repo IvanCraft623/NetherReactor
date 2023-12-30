@@ -1,0 +1,38 @@
+{
+    "name": "ivancraft623/netherreactor",
+    "description": "Plugin for PocketMine-MP that implements the nether reactor",
+    "type": "project",
+    "license": "LGPL-3.0",
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "customiesdevs/customies",
+				"version": "1.3.2",
+				"source": {
+					"url": "https://github.com/CustomiesDevs/Customies.git",
+					"type": "git",
+					"reference": "master"
+				},
+				"autoload": {
+					"psr-4": {
+						"customiesdevs\\customies\\": "src/"
+					}
+				}
+			}
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/IvanCraft623/MobPlugin.git"
+		}
+	],
+    "require-dev": {
+        "php": "^8.0",
+        "pocketmine/pocketmine-mp": "^5.0.0",
+        "phpstan/phpstan": "1.10.21",
+        "customiesdevs/customies": "*",
+		"jasonw4331/libcustompack": "dev-master",
+        "ivancraft623/mobplugin": "*"
+    },
+    "minimum-stability": "dev"
+}
