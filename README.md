@@ -29,7 +29,7 @@ Come, reignite the flames of nostalgia, and relive the enchantment of Minecraft'
 
 # 🧩 Dependencies
 - Customies: Allows the creation of custom entities and blocks. Download ([Poggit](https://poggit.pmmp.io/p/Customies), [GitHub](https://github.com/CustomiesDevs/Customies))
-- MobPlugin: Used for entities and their AI. Download ([Github](https://github.com/IvanCraft623/MobPlugin))
+- MobPlugin: Used for entities and their AI. Download ([GitHub](https://github.com/IvanCraft623/MobPlugin))
 
 # 💡 Features
 

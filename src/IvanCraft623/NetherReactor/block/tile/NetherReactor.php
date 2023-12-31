@@ -23,21 +23,13 @@ declare(strict_types=1);
 namespace IvanCraft623\NetherReactor\block\tile;
 
 use IvanCraft623\NetherReactor\block\ExtraVanillaBlocks;
-
 use IvanCraft623\NetherReactor\block\NetherReactorType;
-use IvanCraft623\NetherReactor\entity\Pigman;
-use IvanCraft623\NetherReactor\NetherReactor as Main;
 use IvanCraft623\NetherReactor\structure\NetherReactorStructure;
 
 use pocketmine\block\tile\Tile;
-use pocketmine\entity\Location;
 use pocketmine\math\AxisAlignedBB;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\utils\Binary;
-use pocketmine\world\World;
-use function lcg_value;
-use function min;
-use function mt_rand;
 
 class NetherReactor extends Tile{
 
@@ -49,14 +41,6 @@ class NetherReactor extends Tile{
 	public const TIME_STEP_PER_TICK = 25;
 
 	public const NETHER_REACTOR_DURATION = 920; //ticks
-
-	public const FIRST_PIGMAN_SPAWN = 200; //ticks
-	public const SECOND_PIGMAN_SPAWN = 260; //ticks
-	public const THIRD_PIGMAN_SPAWN = 380; //ticks
-	public const FOURTH_PIGMAN_SPAWN = 500; //ticks
-
-	public const MAX_PIGMEN_SPAWN_PER_ROUND = 2;
-	public const MAX_PIGMEN_COUNT = 3;
 
 	protected bool $initialized = false;
 	protected bool $finished = false;
@@ -166,12 +150,10 @@ class NetherReactor extends Tile{
 				}
 			}
 
-			if ($this->progress === self::FIRST_PIGMAN_SPAWN ||
-				$this->progress === self::SECOND_PIGMAN_SPAWN ||
-				$this->progress === self::THIRD_PIGMAN_SPAWN ||
-				$this->progress === self::FOURTH_PIGMAN_SPAWN
-			) {
-				$this->tryToSpawnPigmen();
+			foreach ($structure->getRounds() as $round) {
+				if ($round->canStart($this->progress)) {
+					$round->start($this->getPosition(), $this->getRoomBoundingBox());
+				}
 			}
 
 			if ($this->progress >= self::NETHER_REACTOR_DURATION) {
@@ -182,50 +164,5 @@ class NetherReactor extends Tile{
 			$hasUpdate = true;
 		}
 		return $hasUpdate;
-	}
-
-	public function tryToSpawnPigmen() : void{
-		if (!Main::isMobPluginDetected()) {
-			return;
-		}
-
-		$world = $this->position->getWorld();
-		if ($world->getDifficulty() === World::DIFFICULTY_PEACEFUL) {
-			return;
-		}
-
-		$pigmenCount = 0;
-		foreach ($world->getNearbyEntities($this->getRoomBoundingBox()) as $entity) {
-			if ($entity instanceof Pigman && ++$pigmenCount >= self::MAX_PIGMEN_COUNT) {
-				return;
-			}
-		}
-
-		$pigmenToSpawn = min(self::MAX_PIGMEN_SPAWN_PER_ROUND, self::MAX_PIGMEN_COUNT - $pigmenCount);
-
-		$layers = NetherReactorStructure::getInstance()->getPatternLayers();
-		for ($i = 0; $i < $pigmenToSpawn; $i++) {
-			while (true) {
-				$x = mt_rand((int) $this->roomBB->minX, (int) $this->roomBB->maxX);
-				$z = mt_rand((int) $this->roomBB->minZ, (int) $this->roomBB->maxZ);
-
-				if ($x === (int) $this->position->x && $z === (int) $this->position->z) {
-					continue;
-				}
-
-				foreach ($layers as $layer) {
-					foreach ($layer->getBlocks() as $pos) {
-						if ((int) $pos->x === $x || (int) $pos->z === $z) {
-							continue 3;
-						}
-					}
-				}
-
-				$entity = new Pigman(new Location($x + 0.5, $this->roomBB->minY, $z + 0.5, $world, lcg_value() * 360, 0));
-				$entity->spawnToAll();
-
-				break;
-			}
-		}
 	}
 }

@@ -63,6 +63,9 @@ final class NetherReactorStructure{
 	private Vector3 $minRoomPosition;
 	private Vector3 $maxRoomPosition;
 
+	/** @var NetherReactorRound[] */
+	private array $rounds;
+
 	/** @var Vector3[] */
 	private array $spireBlocks = [];
 
@@ -169,6 +172,29 @@ final class NetherReactorStructure{
 		}
 
 		return (int) $input;
+	}
+
+	/**
+	 * @return NetherReactorRound[]
+	 */
+	public function getRounds() : array{
+		if (!isset($this->rounds)) {
+			//TODO: not sure about loot amount values :P
+			$this->rounds = [
+				new NetherReactorRound(tick: 200, minLootAmount: 0, maxLootAmount: 15, spawnPigmen: true),
+				new NetherReactorRound(tick: 260, minLootAmount: 0, maxLootAmount: 15, spawnPigmen: true),
+				new NetherReactorRound(tick: 400, minLootAmount: 0, maxLootAmount: 15, spawnPigmen: true),
+				new NetherReactorRound(tick: 440, minLootAmount: 11, maxLootAmount: 20),
+				new NetherReactorRound(tick: 500, minLootAmount: 0, maxLootAmount: 10, spawnPigmen: true),
+				new NetherReactorRound(tick: 600, minLootAmount: 17, maxLootAmount: 32),
+				new NetherReactorRound(tick: 680, minLootAmount: 17, maxLootAmount: 32),
+				new NetherReactorRound(tick: 720, minLootAmount: 1, maxLootAmount: 32),
+				new NetherReactorRound(tick: 760, minLootAmount: 1, maxLootAmount: 32),
+				new NetherReactorRound(tick: 800, minLootAmount: 1, maxLootAmount: 32)
+			];
+		}
+
+		return $this->rounds;
 	}
 
 	public function getMinRoomPosition() : Vector3{
