@@ -34,8 +34,10 @@ use pocketmine\math\Vector3;
 use pocketmine\world\Position;
 use pocketmine\world\World;
 
+use function abs;
 use function cos;
 use function deg2rad;
+use function floor;
 use function lcg_value;
 use function min;
 use function mt_rand;
@@ -68,6 +70,23 @@ final class NetherReactorRound{
 
 		//30% probability
 		return VanillaItems::NETHER_QUARTZ();
+	}
+
+	public static function getRandomPosition(Vector3 $center, ?int $radius = null) : Vector3{
+		$radius = $radius ?? self::getRandomRadius();
+		$randomDegree = deg2rad(lcg_value() * 360);
+		return new Vector3(
+			$center->x + floor($radius * cos($randomDegree)) + 0.5,
+			$center->y,
+			$center->z + floor($radius * sin($randomDegree)) + 0.5,
+		);
+	}
+
+	public static function getRandomRadius() : int{
+		return mt_rand(
+			3, //Pattern radius, maybe we shouldn't be hardcoding it
+			abs((int) NetherReactorStructure::getInstance()->getMaxRoomPosition()->x) //Room radius
+		);
 	}
 
 	public function __construct(
@@ -107,14 +126,11 @@ final class NetherReactorRound{
 	public function start(Position $position, AxisAlignedBB $roomBB) : void{
 		$world = $position->getWorld();
 		$itemSpawnAmount = mt_rand($this->minLootAmount, $this->maxLootAmount);
+
+		$center = $position->withComponents(null, $roomBB->minY, null);
 		for ($i = 0; $i < $itemSpawnAmount; $i++) {
-			$randomDegree = deg2rad(mt_rand(1, 360));
-			$randomDistance = mt_rand(3, 8);
-
-			$x = $position->x + ($randomDistance * cos($randomDegree));
-			$z = $position->z + ($randomDistance * sin($randomDegree));
-
-			if (($itemEntity = $world->dropItem(new Vector3($x + 0.5, $position->y - 1, $z + 0.5), self::getRandomLoot())) !== null) {
+			$itemEntity = $world->dropItem(self::getRandomPosition($center), self::getRandomLoot());
+			if ($itemEntity !== null) {
 				$itemEntity->setDespawnDelay(self::LOOT_DESPAWN_DELAY);
 			}
 		}
@@ -143,29 +159,12 @@ final class NetherReactorRound{
 
 		$pigmenToSpawn = min(self::MAX_PIGMEN_SPAWN_PER_ROUND, self::MAX_PIGMEN_COUNT - $pigmenCount);
 
-		$layers = NetherReactorStructure::getInstance()->getPatternLayers();
+		$center = $position->withComponents(null, $roomBB->minY, null);
 		for ($i = 0; $i < $pigmenToSpawn; $i++) {
-			while (true) {
-				$x = mt_rand((int) $roomBB->minX, (int) $roomBB->maxX);
-				$z = mt_rand((int) $roomBB->minZ, (int) $roomBB->maxZ);
+			$entity = new Pigman(Location::fromObject(self::getRandomPosition($center), $world, lcg_value() * 360, 0));
+			$entity->spawnToAll();
 
-				if ($x === (int) $position->x && $z === (int) $position->z) {
-					continue;
-				}
-
-				foreach ($layers as $layer) {
-					foreach ($layer->getBlocks() as $pos) {
-						if ((int) $pos->x === $x || (int) $pos->z === $z) {
-							continue 3;
-						}
-					}
-				}
-
-				$entity = new Pigman(new Location($x + 0.5, $roomBB->minY, $z + 0.5, $world, lcg_value() * 360, 0));
-				$entity->spawnToAll();
-
-				break;
-			}
+			break;
 		}
 	}
 }
