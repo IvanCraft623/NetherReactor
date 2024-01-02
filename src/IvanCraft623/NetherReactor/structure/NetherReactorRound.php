@@ -84,6 +84,22 @@ final class NetherReactorRound{
 		}
 	}
 
+	public function getTick() : int{
+		return $this->tick;
+	}
+
+	public function getMinLootAmount() : int{
+		return $this->minLootAmount;
+	}
+
+	public function getMaxLootAmount() : int{
+		return $this->maxLootAmount;
+	}
+
+	public function willSpawnPigmen() : bool{
+		return $this->spawnPigmen;
+	}
+
 	public function canStart(int $currentTick) : bool{
 		return $this->tick === $currentTick;
 	}
