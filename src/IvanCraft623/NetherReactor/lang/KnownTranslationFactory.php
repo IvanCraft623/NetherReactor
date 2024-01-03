@@ -50,4 +50,8 @@ final class KnownTranslationFactory{
 	public static function netherreactor_wrong_pattern() : Translatable{
 		return new Translatable(KnownTranslationKeys::NETHERREACTOR_WRONG_PATTERN, []);
 	}
+
+	public static function netherreactor_no_permission() : Translatable{
+		return new Translatable(KnownTranslationKeys::NETHERREACTOR_NO_PERMISSION, []);
+	}
 }

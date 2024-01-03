@@ -34,4 +34,5 @@ final class KnownTranslationKeys{
 	public const NETHERREACTOR_BUILD_TOO_LOW = "tile.netherreactor.builtTooLow";
 	public const NETHERREACTOR_PLAYERS_TOO_FAR = "tile.netherreactor.playersTooFar";
 	public const NETHERREACTOR_WRONG_PATTERN = "tile.netherreactor.wrongPattern";
+	public const NETHERREACTOR_NO_PERMISSION = "tile.netherreactor.noPermission";
 }
